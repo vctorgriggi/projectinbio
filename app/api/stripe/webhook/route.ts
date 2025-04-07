@@ -1,4 +1,5 @@
 import { db } from '@/lib/firebase';
+import { resend } from '@/lib/send';
 import stripe from '@/lib/stripe';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
@@ -40,6 +41,21 @@ export async function POST(req: NextRequest) {
 
           if (hostedVoucherUrl) {
             const userEmail = event.data.object.customer_email;
+
+            if (userEmail) {
+              resend.emails.send({
+                from: 'pagamentos@projectinbio.com',
+                to: userEmail,
+                subject: 'Aqui está o seu boleto 💳',
+                text: `Olá!
+              
+              Conforme solicitado, aqui está o link para o seu boleto:
+              ${hostedVoucherUrl}
+              
+              Qualquer dúvida, estamos à disposição.  
+              Obrigado por escolher a ProjectInBio! 😊`,
+              });
+            }
           }
         }
 
