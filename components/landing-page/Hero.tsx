@@ -1,9 +1,7 @@
 import ProjectCard from '../commons/ProjectCard';
 import TotalVisits from '../commons/TotalVisits';
 import UserCard from '../commons/user-card/UserCard';
-import Button from '../ui/Button';
 import CreateNow from '../ui/CreateNow';
-import TextInput from '../ui/TextInput';
 
 export default function Hero() {
   return (

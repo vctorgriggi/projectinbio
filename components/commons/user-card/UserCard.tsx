@@ -23,7 +23,7 @@ export default async function UserCard({
         <img
           src={
             (await getDownloadURLFromPath(profileData?.imagePath)) ||
-            'https://github.com/vctorgriggi.png'
+            'https://i.pinimg.com/736x/3a/28/60/3a28605a14efe32d6f49496dd05dfd3b.jpg'
           }
           alt="Profile Picture"
           className="h-full w-full rounded-full object-cover"
@@ -32,13 +32,12 @@ export default async function UserCard({
       <div className="flex w-full flex-col gap-2">
         <div className="flex items-center gap-2">
           <h3 className="min-w-0 overflow-hidden text-3xl font-bold">
-            {profileData?.name || 'Victor Griggi'}
+            {profileData?.name || 'Seu Nome'}
           </h3>
           {isOwner && <EditUserCard profileData={profileData} />}
         </div>
         <p className="opacity-40">
-          {profileData?.description ||
-            'Desenvolvo experiências digitais fluidas, acessíveis e de alto desempenho — do design à aplicação, em quaisquer plataformas.'}
+          {profileData?.description || 'Uma breve descrição sobre você.'}
         </p>
       </div>
       <div className="flex w-full flex-col gap-2">
