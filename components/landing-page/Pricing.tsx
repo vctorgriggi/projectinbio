@@ -40,7 +40,7 @@ export default function Pricing() {
               </div>
               <div className="flex items-center gap-1">
                 <span className="text-[48px] font-bold text-white">
-                  R$ 99,99
+                  R$ 49,99
                 </span>
               </div>
               <Button>Assinar</Button>
