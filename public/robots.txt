@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host (opcional, usado principalmente por Yandex)
+Host: https://www.projectinbio.com
+
+# Localização do sitemap XML
+Sitemap: https://www.projectinbio.com/sitemap.xml
