@@ -1,5 +1,5 @@
 import { db } from '@/lib/firebase';
-import { resend } from '@/lib/send';
+import { resend } from '@/lib/resend';
 import stripe from '@/lib/stripe';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
@@ -12,7 +12,9 @@ export async function POST(req: NextRequest) {
     const secret = process.env.STRIPE_WEBHOOK_SECRET;
 
     if (!signature || !secret) {
-      throw new Error('Stripe webhook secret is not set');
+      return new NextResponse('Stripe webhook secret is not set', {
+        status: 400,
+      });
     }
 
     const event = stripe.webhooks.constructEvent(body, signature, secret);
@@ -40,7 +42,7 @@ export async function POST(req: NextRequest) {
               ?.hosted_voucher_url;
 
           if (hostedVoucherUrl) {
-            const userEmail = event.data.object.customer_email;
+            const userEmail = event.data.object.customer_details?.email;
 
             if (userEmail) {
               resend.emails.send({
