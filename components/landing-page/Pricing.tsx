@@ -12,7 +12,7 @@ export default function Pricing() {
           Junte-se à comunidade de criadores profissionais que já estão elevando
           sua <br />
           presença online. Teste gratuitamente por{' '}
-          <strong className="text-accent-pink">{TRIAL_DAYS}</strong> dias, sem
+          <strong className="text-accent-pink">{TRIAL_DAYS} dias</strong>, sem
           compromisso!
         </p>
       </div>
