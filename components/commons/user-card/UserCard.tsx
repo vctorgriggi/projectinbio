@@ -23,7 +23,7 @@ export default async function UserCard({
         <img
           src={
             (await getDownloadURLFromPath(profileData?.imagePath)) ||
-            'https://i.pinimg.com/736x/3a/28/60/3a28605a14efe32d6f49496dd05dfd3b.jpg'
+            '/avatar-fallback.jpg'
           }
           alt="Profile Picture"
           className="h-full w-full rounded-full object-cover"
@@ -32,12 +32,13 @@ export default async function UserCard({
       <div className="flex w-full flex-col gap-2">
         <div className="flex items-center gap-2">
           <h3 className="min-w-0 overflow-hidden text-3xl font-bold">
-            {profileData?.name || 'Seu Nome'}
+            {profileData?.name || 'Nome e Sobrenome'}
           </h3>
           {isOwner && <EditUserCard profileData={profileData} />}
         </div>
         <p className="opacity-40">
-          {profileData?.description || 'Uma breve descrição sobre você.'}
+          {profileData?.description ||
+            'Descreva seu perfil em poucas palavras.'}
         </p>
       </div>
       <div className="flex w-full flex-col gap-2">
