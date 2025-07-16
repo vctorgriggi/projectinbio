@@ -32,7 +32,7 @@ export default async function UserCard({
       <div className="flex w-full flex-col gap-2">
         <div className="flex items-center gap-2">
           <h3 className="min-w-0 overflow-hidden text-3xl font-bold">
-            {profileData?.name || 'Nome e Sobrenome'}
+            {profileData?.name || 'Seu Nome'}
           </h3>
           {isOwner && <EditUserCard profileData={profileData} />}
         </div>
